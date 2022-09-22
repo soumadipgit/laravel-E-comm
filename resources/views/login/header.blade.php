@@ -1,6 +1,16 @@
+<?php
+use App\Http\Controllers\ProductController;
+$total = 0;
+if (Session::has('username')) 
+{
+  $total=ProductController::cartItem();
+}
+
+?>
+
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="/">E-comm</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,7 +35,31 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
-      </ul>
-    </div>
-  </div>
+        <form class="d-flex" action="/search" method="GET">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+          <button class="btn btn-outline-light text-white" type="submit">Search</button>
+        </form>   
+        <div class="text-white">
+          <ul class="nav navbar-nav navbar-right text-white " >
+            <li style="margin: 5px"><a class="text-white" href="#">Cart({{$total}})</a></li>
+            @if(Session::has('username'))
+            
+            <li class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{Session::get('username')['name']}}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                  <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                 
+                </ul>
+            </li>
+            @else 
+            <li style="margin: 5px"><a class="text-white"  href="/login">Login</a></li>
+            @endif
+          </ul>
+        </div>
+        </ul>    
+      </div>
+  </div>    
+</div>
 </nav>
