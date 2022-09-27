@@ -41,7 +41,7 @@ if (Session::has('username'))
         </form>   
         <div class="text-white">
           <ul class="nav navbar-nav navbar-right text-white " >
-            <li style="margin: 5px"><a class="text-white" href="#">Cart({{$total}})</a></li>
+            <li style="margin: 5px"><a class="text-white" href="/cartlist">Cart({{$total}})</a></li>
             @if(Session::has('username'))
             
             <li class="dropdown">
@@ -55,6 +55,7 @@ if (Session::has('username'))
             </li>
             @else 
             <li style="margin: 5px"><a class="text-white"  href="/login">Login</a></li>
+            <li style="margin: 5px"><a class="text-white"  href="/registration">Registration</a></li>
             @endif
           </ul>
         </div>

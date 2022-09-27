@@ -16,6 +16,7 @@
 
     {{View::make('login/header')}}
     @yield('content')
+
     {{-- {{View::make('login/footer')}} --}}
 
 </body>
@@ -32,16 +33,16 @@
     }
      .trending-img{
         height: 100px;
-    }    
+    }
     .trending-item{
         float:left;
-        width: 20%; 
+        width: 20%;
     }
     .trending-wraper{
        margin: 30px;
        font-size: 12px;
     }
-    
+
 
 </style>
 </html>
